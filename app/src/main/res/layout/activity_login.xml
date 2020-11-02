@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_colorful"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/calendarLogoLog"
+        android:layout_width="414dp"
+        android:layout_height="319dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/loginView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/calendarlogogood" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/loginView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="48dp"
+        app:cardBackgroundColor="#FFFCFC"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp"
+        app:cardMaxElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarLogoLog">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="298dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/loginPromptLog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Log Into Account" />
+
+            <EditText
+                android:id="@+id/emailLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/edt_back"
+                android:ems="10"
+                android:fontFamily="@font/montserrat"
+                android:hint="Enter your email"
+                android:inputType="textEmailAddress"
+                android:padding="8dp"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/passwordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/edt_back"
+                android:ems="10"
+                android:fontFamily="@font/montserrat"
+                android:hint="Enter your password"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/background_btn"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Log In"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/forgot_password_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:text="Forgot Password?  Click Here!" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

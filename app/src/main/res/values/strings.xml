@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Calendar App</string>
+    <string name="time_12am">12 am</string>
+    <string name="time_1am">1 am</string>
+    <string name="time_2am">2 am</string>
+    <string name="time_3am">3 am</string>
+    <string name="time_4am">4 am</string>
+    <string name="time_5am">5 am</string>
+    <string name="time_6am">6 am</string>
+    <string name="time_7am">7 am</string>
+    <string name="time_8am">8 am</string>
+    <string name="time_9am">9 am</string>
+    <string name="time_10am">10 am</string>
+    <string name="time_11am">11 am</string>
+    <string name="time_12pm">12 pm</string>
+    <string name="time_13pm">1 pm</string>
+    <string name="time_14pm">2 pm</string>
+    <string name="time_15pm">3 pm</string>
+    <string name="time_16pm">4 pm</string>
+    <string name="time_17pm">5 pm</string>
+    <string name="time_18pm">6 pm</string>
+    <string name="time_19pm">7 pm</string>
+    <string name="time_20pm">8 pm</string>
+    <string name="time_21pm">9 pm</string>
+    <string name="time_22pm">10 pm</string>
+    <string name="time_23pm">11 pm</string>
+    <string name="current_day_date">27 October, 2020</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
