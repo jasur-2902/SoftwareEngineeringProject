@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "747978419820",
+    "firebase_url": "https://schedule-me-49803.firebaseio.com",
+    "project_id": "schedule-me-49803",
+    "storage_bucket": "schedule-me-49803.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747978419820:android:346eec54e1701b6a28f249",
+        "android_client_info": {
+          "package_name": "com.example.calendarapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747978419820-cltcqblfjfv9bffrad448htkk2rm4pt1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6cQOBU8qD7ICCOzgGrg4FXK9KaNI0KyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747978419820-cltcqblfjfv9bffrad448htkk2rm4pt1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

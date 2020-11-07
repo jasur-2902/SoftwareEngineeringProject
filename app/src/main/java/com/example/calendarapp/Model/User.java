@@ -2,16 +2,14 @@ package com.example.calendarapp.Model;
 
 public class User {
 
-    private String id, username, imageURL;
+    private String id, username, imageUrl, status, search;
 
-    public User(){
-
-    }
-
-    public User(String id, String username, String imageURL) {
+    public User(String id, String username, String imageUrl, String status, String search) {
         this.id = id;
         this.username = username;
-        this.imageURL = imageURL;
+        this.imageUrl = imageUrl;
+        this.status = status;
+        this.search = search;
     }
 
     public String getId() {
@@ -30,11 +28,27 @@ public class User {
         this.username = username;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
     }
 }
