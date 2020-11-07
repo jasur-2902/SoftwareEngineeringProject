@@ -4,6 +4,10 @@ public class User {
 
     private String id, username, imageUrl, status, search;
 
+    public User() {
+
+    }
+
     public User(String id, String username, String imageUrl, String status, String search) {
         this.id = id;
         this.username = username;
