@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseUser firebaseUser;
     private DatabaseReference databaseReference;
-
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         viewPagerAdapter.addFragment(new CalendarFragment(), "Calendar");
+
         viewPagerAdapter.addFragment(new UsersFragment(), "Users");
 
         viewPager.setAdapter(viewPagerAdapter);
@@ -115,17 +116,28 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
 
-            case  R.id.logout:
+        switch (item.getItemId()){
+            case  R.id.logout: {
                 FirebaseAuth.getInstance().signOut();
                 // change this code beacuse your app will crash
                 startActivity(new Intent(MainActivity.this, StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                //finish();
                 return true;
+                //finish();
+            }
+
+            case R.id.findfriends: {
+                sendUserToFindFriendsActivity();
+            }
+
         }
 
-        return false;
+        return true;
+    }
+
+    private void sendUserToFindFriendsActivity(){
+        Intent findFriendsIntent = new Intent(MainActivity.this, FindFriendsActivity.class);
+        startActivity(findFriendsIntent);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
