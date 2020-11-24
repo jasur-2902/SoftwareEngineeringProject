@@ -7,6 +7,9 @@
         android:id="@+id/logout"
         android:title="Logout"
         app:showAsAction="never"/>
-
+    <item
+        android:id="@+id/findfriends"
+        android:title="Find Friends"
+        app:showAsAction="never"/>
 
 </menu>
