@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/week_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.calendarapp.calendar.views.MyScrollView
+        android:id="@+id/week_events_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/week_top_holder"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:id="@+id/week_events_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.example.calendarapp.calendar.views.WeeklyViewGrid
+                android:id="@+id/week_horizontal_grid_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/week_events_columns_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+        </RelativeLayout>
+    </com.example.calendarapp.calendar.views.MyScrollView>
+
+    <RelativeLayout
+        android:id="@+id/week_top_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stroke_bottom"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/week_letters_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/stroke_bottom"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/small_margin" />
+
+        <LinearLayout
+            android:id="@+id/week_all_day_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/week_letters_holder"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
