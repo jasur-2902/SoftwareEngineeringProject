@@ -24,7 +24,21 @@
     <string name="time_21pm">9 pm</string>
     <string name="time_22pm">10 pm</string>
     <string name="time_23pm">11 pm</string>
-    <string name="current_day_date">27 October, 2020</string>
+    <string name="current_day_date">1 January, 1970</string>
+
+    <string name="current_date_event_display">1 January, 1970</string>
+
+    <!--This is other String variants that we need -->
+    <string name="current_date">June, 2016</string>
+    <string name="add_event">ADD CALENDAR EVENT</string>
+    <string name="sun">SUN</string>
+    <string name="mon">MON</string>
+    <string name="tue">TUE</string>
+    <string name="wed">WED</string>
+    <string name="thu">THU</string>
+    <string name="fri">FRI</string>
+    <string name="sat">SAT</string>
+    <string name="last_date">30</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

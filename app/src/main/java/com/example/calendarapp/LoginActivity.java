@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
+    //All required properties/attributes for our login activity
     private Button loginButton;
     private EditText emailAddress, password;
     private TextView forgotPassword;
@@ -44,9 +45,12 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //We have to parse our email address and password as strings
                 String stringEmailAddress = emailAddress.getText().toString();
                 String stringPassword = password.getText().toString();
 
+                //We check to see if all the textboxes and requirements are filled before going
+                //if not, then we prompt to the user to enter in the fields, else we validate the login by sending data to validate function
                 if (TextUtils.isEmpty(stringEmailAddress) || TextUtils.isEmpty(stringPassword)) {
                     Toast.makeText(LoginActivity.this, "All fileds are required", Toast.LENGTH_SHORT).show();
                 } else {
@@ -56,8 +60,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        //TODO: make forgot password activity
-        //forgot password direction
+        //Button that prompts to the forgotton password activity
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

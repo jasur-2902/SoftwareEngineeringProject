@@ -28,6 +28,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,15 +64,28 @@ public class MainActivity extends AppCompatActivity {
                 User user = dataSnapshot.getValue(User.class);
                 username.setText(user.getUsername());
 
-                //TODO: Bug here when setting an image to either default or user inputed image from file
+                //TODO: Bug here when setting an image to either default or user inputted image from file
                 //      -Review logistics of code again and add/change something to make this functional
                 if (user.getImageUrl() != null && user.getImageUrl().equals("default")){
                     profile_image.setImageResource(R.mipmap.ic_launcher);
                 } else {
 
                     //change this
-                    Glide.with(getApplicationContext()).load(user.getImageUrl()).into(profile_image);
+                    Glide.with(getApplicationContext()).load(user.getImageUrl()).circleCrop().into(profile_image);
+                    //Picasso.get().load(user.getImageUrl()).into(profile_image);
                 }
+
+                //maybe pass info and a specific format will output instead of making specific profiles
+                /*
+                final Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
+                profileIntent.putExtra("id", user.getId());
+
+                profile_image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(profileIntent);
+                    }
+                });*/
             }
 
             @Override
@@ -96,8 +110,12 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         viewPagerAdapter.addFragment(new CalendarFragment(), "Calendar");
+//<<<<<<< Updated upstream
 
         viewPagerAdapter.addFragment(new UsersFragment(), "Users");
+//
+        viewPagerAdapter.addFragment(new UsersFragment(), "Friends");
+//>>>>>>> Stashed changes
 
         viewPager.setAdapter(viewPagerAdapter);
 
@@ -194,6 +212,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        status("offline");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
         status("offline");
     }
 

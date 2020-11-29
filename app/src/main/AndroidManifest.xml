@@ -13,9 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".FindFriendsActivity"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".ForgotPasswordActivity" />
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".EventCreationActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ProfileActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
