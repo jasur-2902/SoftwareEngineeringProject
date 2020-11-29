@@ -1,8 +1,15 @@
 package com.example.calendarapp.Model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class User {
 
     private String id, username, imageUrl, status, search;
+
+
+
+    public Map<String, String> friends = new HashMap<>();
 
     public User() {
 
@@ -15,7 +22,13 @@ public class User {
         this.status = status;
         this.search = search;
     }
+    public Map<String, String> getFriends() {
+        return friends;
+    }
 
+    public void setFriends(Map<String, String> friends) {
+        this.friends = friends;
+    }
     public String getId() {
         return id;
     }

@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+
+
+import com.example.calendarapp.Model.User;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.squareup.picasso.Picasso;
+
 public class FindFriendsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -35,13 +37,14 @@ public class FindFriendsActivity extends AppCompatActivity {
 
         // It is a class provide by the FirebaseUI to make a
         // query in the database to fetch appropriate data
-        FirebaseRecyclerOptions<person> options
-                = new FirebaseRecyclerOptions.Builder<person>().setQuery(mbase, person.class).build();
+        FirebaseRecyclerOptions<User> options
+                = new FirebaseRecyclerOptions.Builder<User>().setQuery(mbase, User.class).build();
         // Connecting object of required Adapter class to
         // the Adapter class itself
         adapter = new personAdapter(options);
         // Connecting Adapter class with the Recycler view*/
         recyclerView.setAdapter(adapter);
+
     }
 
     // Function to tell the app to start getting
