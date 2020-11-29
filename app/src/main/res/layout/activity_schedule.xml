@@ -44,6 +44,14 @@ tools:context=".ScheduleActivity">
             android:contentDescription="@string/app_name"
             android:src="@drawable/right_arrow" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/event_create_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Event" />
+
+
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"

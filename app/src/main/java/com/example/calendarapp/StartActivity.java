@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class StartActivity extends AppCompatActivity {
 
+    //Create our button objects
     Button loginButton, registerButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class StartActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.sign_up_button);
 
         //Buttons Prompt to open New Activity
+        //the code below opens from the start activity to the login activity
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,6 +29,7 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+        //this opens up to the register activity
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

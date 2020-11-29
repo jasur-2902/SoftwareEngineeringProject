@@ -29,8 +29,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
+
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -55,6 +57,22 @@ public class ProfileActivity extends AppCompatActivity {
         imageProfile = findViewById(R.id.profile_image);
         username = findViewById(R.id.username_profile);
 
+        //TODO:
+        // insert if else clause when loading the profile as we get an intent of data that we can use
+        // to help determine what profile to launch
+        // also to create different layout
+        // my profile is just me and my username and the picture
+        // the other profiles can be one of two things
+        // 1. unfriended, just the username, picture, and button to send friend request
+        // 2. friended, Everything like the previous except theres a remove/block friend button
+        // and the option to check in with them for free time.
+
+
+        String profileId = getIntent().getStringExtra("id");
+        if (profileId != null){
+            //parse the base user info in the profile and the layouts
+        }
+
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -66,9 +84,11 @@ public class ProfileActivity extends AppCompatActivity {
                 User user = snapshot.getValue(User.class);
                 username.setText(user.getUsername());
                 if (user.getImageUrl() != null && user.getImageUrl().equals("default")){
-                    imageProfile.setImageResource(R.mipmap.ic_launcher);
+                    imageProfile.setImageResource(R.mipmap.ic_launcher_round);
                 } else {
-                    Glide.with(getApplicationContext()).load(user.getImageUrl()).into(imageProfile);
+                    //Glide.with(getApplicationContext()).load(user.getImageUrl()).into(imageProfile);
+                    Glide.with(getApplicationContext()).load(user.getImageUrl()).circleCrop().into(imageProfile);
+                    //Picasso.get().load(user.getImageUrl()).into(imageProfile);
                 }
             }
 
