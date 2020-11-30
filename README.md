@@ -1,10 +1,10 @@
 # SoftwareEngineeringProject
 Final Project for CSC 440 
 
-Team Members: Jasur Shukurov - Master/Project Manager
-              Giuseppe D'Ambrosio - Frontend Developer
-              Matt Vang - Backend Developer
-              Kenny Martinez - Database Developer
+Team Members: Jasur Shukurov - Master/Project Manager  
+              Giuseppe D'Ambrosio - Frontend Developer  
+              Matt Vang - Backend Developer  
+              Kenny Martinez - Database Developer  
 
 This is next Billion Dollar Project/Start- UP 
 
