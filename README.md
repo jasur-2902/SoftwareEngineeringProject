@@ -1,7 +1,8 @@
 # SoftwareEngineeringProject
 Final Project for CSC 440 
 
-Team Members: Jasur Shukurov - Master/Project Manager  
+Team Members:  
+              Jasur Shukurov - Master/Project Manager  
               Giuseppe D'Ambrosio - Frontend Developer  
               Matt Vang - Backend Developer  
               Kenny Martinez - Database Developer  
