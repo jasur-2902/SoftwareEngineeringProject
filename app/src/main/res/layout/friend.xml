@@ -69,24 +69,37 @@
 
 
         <Button
-            android:id="@+id/send_friend_request"
-            android:layout_width="120dp"
+            android:id="@+id/unfriend_button"
+            android:layout_width="100dp"
             android:layout_height="35dp"
-            android:layout_marginStart="240dp"
-            android:layout_marginTop="26dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginBottom="21dp"
-            android:text="Add Friend"
+            android:layout_marginStart="255dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="12dp"
+            android:text="Unfriend"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.937"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/make_schedule_button"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="255dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="42dp"
+            android:text="Schedule"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="20dp" />
 
