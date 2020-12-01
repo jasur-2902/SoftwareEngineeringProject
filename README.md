@@ -18,6 +18,7 @@ This is next Billion Dollar Project/Start- UP
 * [Implementation] (#implementation)
 * [Sprint Schedule] (#sprint-schedule)
 * [Software Development Plan] (#software-development-plan)
+* [Coding Style] (#coding-style)
 * [References/Glossery] (#references-glossery)
 
 ## Overview
@@ -173,8 +174,12 @@ The figure above demonstrates the overall software development plan. The fronten
 and database boxes enclosed in the larger box shows how all three implementations will be done
 simultaneously.
 
+## Coding Style
+Comments: use comments to indicate what each function and intent does. Avoid unncessary comments relative to syntax decisions
+Whitespace: increment one tab for every nested operation. Avoid leaving too much blank lines
+Naming: Capitalization for class names, camel back for function names, and lowercase with usage of m-dash and under_score for variable names
+Possible Error / To do: comment with tags To Do or To Revise so other contributors can take notice
 
 ## Reference/Glossery
-
 Android Studio Documentation: https://developer.android.com/docs
 Google Firebase Documentation: https://firebase.google.com/docs
