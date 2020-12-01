@@ -1,33 +1,17 @@
-package com.example.calendarapp.Fragments;
+package com.example.calendarapp;
 
-import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
+import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.calendarapp.Adapter.UserAdapter;
 import com.example.calendarapp.Model.FriendList;
 import com.example.calendarapp.Model.User;
-import com.example.calendarapp.R;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import android.os.Bundle;
-
-
-import com.example.calendarapp.Model.User;
-import com.example.calendarapp.friendsAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,12 +21,7 @@ import com.google.firebase.database.Query;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link UsersFragment} factory method to
- * create an instance of this fragment.
- */
-public class UsersFragment extends Fragment {
+public class UsersActivity extends AppCompatActivity {
 
     private friendsAdapter adapter;
     private RecyclerView recyclerView;
@@ -62,17 +41,16 @@ public class UsersFragment extends Fragment {
     EditText search_users;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        view = inflater.inflate(R.layout.fragment_users, container, false);
+        setContentView(R.layout.activity_users);
 
         mAuth = FirebaseAuth.getInstance();
-        recyclerView = view.findViewById(R.id.friends_list);
+        recyclerView = findViewById(R.id.friends_list);
         setUpRecyclerView();
 
-        return view;
-    }
 
+    }
 
     public void setUpRecyclerView(){
         String self_user_ID = mAuth.getCurrentUser().getUid();
@@ -83,7 +61,7 @@ public class UsersFragment extends Fragment {
                 .build();
 
         adapter = new friendsAdapter(options);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(UsersActivity.this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
     }
@@ -97,11 +75,4 @@ public class UsersFragment extends Fragment {
         }
 
     }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-    }
-
 }

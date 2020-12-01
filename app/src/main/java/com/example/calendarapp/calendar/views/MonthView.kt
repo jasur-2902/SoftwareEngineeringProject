@@ -19,7 +19,6 @@ import com.example.calendarapp.calendar.models.DayMonthly
 import com.example.calendarapp.calendar.models.Event
 import com.example.calendarapp.calendar.models.MonthViewEvent
 import com.simplemobiletools.commons.extensions.adjustAlpha
-import com.simplemobiletools.commons.extensions.getAdjustedPrimaryColor
 import com.simplemobiletools.commons.extensions.getContrastColor
 import com.simplemobiletools.commons.extensions.moveLastItemToFront
 import org.joda.time.DateTime
@@ -36,7 +35,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     private var config = context.config
     private var dayWidth = 0f
     private var dayHeight = 0f
-    private var primaryColor = 0
+    //private var primaryColor = 0
     private var textColor = 0
     private var weekDaysLetterHeight = 0
     private var eventTitleHeight = 0
@@ -56,7 +55,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     constructor(context: Context, attrs: AttributeSet) : this(context, attrs, 0)
 
     init {
-        primaryColor = context.getAdjustedPrimaryColor()
+        //primaryColor = context.getAdjustedPrimaryColor()
         textColor = config.textColor
         showWeekNumbers = config.showWeekNumbers
         dimPastEvents = config.dimPastEvents
@@ -181,7 +180,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
             val xPos = horizontalOffset + (i + 1) * dayWidth - dayWidth / 2
             var weekDayLetterPaint = paint
             if (i == currDayOfWeek && !isPrintVersion) {
-                weekDayLetterPaint = getColoredPaint(primaryColor)
+                //weekDayLetterPaint = getColoredPaint(primaryColor)
             }
             canvas.drawText(dayLetters[i], xPos, weekDaysLetterHeight * 0.7f, weekDayLetterPaint)
         }
@@ -193,7 +192,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
 
         for (i in 0 until ROW_COUNT) {
             val weekDays = days.subList(i * 7, i * 7 + 7)
-            weekNumberPaint.color = if (weekDays.any { it.isToday && !isPrintVersion }) primaryColor else textColor
+            //weekNumberPaint.color = if (weekDays.any { it.isToday && !isPrintVersion }) //primaryColor else textColor
 
             // fourth day of the week determines the week of the year number
             val weekOfYear = days.getOrNull(i * 7 + 3)?.weekOfYear ?: 1
@@ -259,7 +258,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     private fun getTextPaint(startDay: DayMonthly): Paint {
         var paintColor = textColor
         if (startDay.isToday && !isPrintVersion) {
-            paintColor = primaryColor.getContrastColor()
+          //  paintColor = primaryColor.getContrastColor()
         }
 
         if (!startDay.isThisMonth) {
@@ -297,11 +296,11 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
 
     private fun getCirclePaint(day: DayMonthly): Paint {
         val curPaint = Paint(paint)
-        var paintColor = primaryColor
-        if (!day.isThisMonth) {
-            paintColor = paintColor.adjustAlpha(MEDIUM_ALPHA)
-        }
-        curPaint.color = paintColor
+       // var paintColor = primaryColor
+//        if (!day.isThisMonth) {
+//            paintColor = paintColor.adjustAlpha(MEDIUM_ALPHA)
+//        }
+//        curPaint.color = paintColor
         return curPaint
     }
 

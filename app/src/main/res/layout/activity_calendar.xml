@@ -17,7 +17,7 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <com.simplemobiletools.commons.views.MyFloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/calendar_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
         android:focusable="true"
         android:visibility="gone">
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <TextView
             android:id="@+id/search_placeholder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
             android:textSize="@dimen/bigger_text_size"
             android:textStyle="italic" />
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <TextView
             android:id="@+id/search_placeholder_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

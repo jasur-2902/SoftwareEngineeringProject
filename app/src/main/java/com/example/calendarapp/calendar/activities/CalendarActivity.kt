@@ -17,10 +17,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
-import com.example.calendarapp.BuildConfig
-import com.example.calendarapp.FindFriendsActivity
-import com.example.calendarapp.R
-import com.example.calendarapp.StartActivity
+import com.example.calendarapp.*
 import com.example.calendarapp.calendar.adapters.EventListAdapter
 import com.example.calendarapp.calendar.databases.EventsDatabase
 import com.example.calendarapp.calendar.extensions.*
@@ -178,10 +175,15 @@ class CalendarActivity : SimpleActivity(), RefreshRecyclerViewListener {
             R.id.logout -> logout()
             R.id.findfriends -> sendUserToFindFriendsActivity()
             R.id.refresh_caldav_calendars -> refreshCalDAVCalendars(true)
+            R.id.match -> match()
             android.R.id.home -> onBackPressed()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
+    }
+
+    private fun match(){
+        startActivity(Intent(this@CalendarActivity, UsersActivity::class.java))
     }
 
     private fun logout(){

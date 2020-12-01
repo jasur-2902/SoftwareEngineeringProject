@@ -8,6 +8,11 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|ifRoom"/>
     <item
+        android:id="@+id/match"
+        android:icon="@drawable/ic_schedule"
+        android:title="@string/search"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/go_to_today"
         android:icon="@drawable/ic_today_vector"
         android:title="@string/go_to_today"
