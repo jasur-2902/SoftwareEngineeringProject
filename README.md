@@ -11,15 +11,15 @@ This is next Billion Dollar Project/Start- UP
 
 
 ## Table of Contents
-[Overview] (https://github.com/jasur-2902/SoftwareEngineeringProject#overview)
-[Requirements] (https://github.com/jasur-2902/SoftwareEngineeringProject#requirements)
-[Design] (https://github.com/jasur-2902/SoftwareEngineeringProject#design)
-[Risk Management Plan] (https://github.com/jasur-2902/SoftwareEngineeringProject#risk-management-plan)
-[Implementation] (https://github.com/jasur-2902/SoftwareEngineeringProject#implementation)
-[Sprint Schedule] (https://github.com/jasur-2902/SoftwareEngineeringProject#sprint-schedule)
-[Software Development Plan] (https://github.com/jasur-2902/SoftwareEngineeringProject#software-development-plan)
-[Coding Style] (https://github.com/jasur-2902/SoftwareEngineeringProject#coding-style)
-[References/Glossery] (https://github.com/jasur-2902/SoftwareEngineeringProject#references-glossery)
+- [Overview] (https://github.com/jasur-2902/SoftwareEngineeringProject#overview)
+- [Requirements] (https://github.com/jasur-2902/SoftwareEngineeringProject#requirements)
+- [Design] (https://github.com/jasur-2902/SoftwareEngineeringProject#design)
+- [Risk Management Plan] (https://github.com/jasur-2902/SoftwareEngineeringProject#risk-management-plan)
+- [Implementation] (https://github.com/jasur-2902/SoftwareEngineeringProject#implementation)
+- [Sprint Schedule] (https://github.com/jasur-2902/SoftwareEngineeringProject#sprint-schedule)
+- [Software Development Plan] (https://github.com/jasur-2902/SoftwareEngineeringProject#software-development-plan)
+- [Coding Style] (https://github.com/jasur-2902/SoftwareEngineeringProject#coding-style)
+- [References/Glossery] (https://github.com/jasur-2902/SoftwareEngineeringProject#references-glossery)
 
 ## Overview
 
