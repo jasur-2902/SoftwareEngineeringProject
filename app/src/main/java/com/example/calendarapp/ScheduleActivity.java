@@ -24,11 +24,9 @@
  import java.util.Date;
  import java.util.HashMap;
  import java.util.List;
+ import androidx.appcompat.app.AppCompatActivity;
+ import android.os.Bundle;
  import java.util.Locale;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
 
         //get the date
         public class ScheduleActivity extends AppCompatActivity {
@@ -55,21 +53,6 @@ import android.os.Bundle;
                 eventIndex = mLayout.getChildCount();
                 currentDate = findViewById(R.id.display_current_date);
                 addEventButton = findViewById(R.id.event_create_button);
-
-
-                //Event event = new Event();
-                // HashMap<String, String> hashMap = new HashMap<>();
-                // hashMap.put("id", "123");
-                //hashMap.put("String", "message-display");
-                // hashMap.put("Status", "Green");
-                // hashMap.put("StartTime", "1:00");
-                // hashMap.put("EndTime", "24:00");
-                //hashMap.put("Date", "1 Jan, 1970");
-
-                //firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-                // databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
-                // databaseReference.push().setValue(displayDateInString(cal.getTime()));
-
 
                 Intent intent = getIntent();
 
@@ -143,20 +126,6 @@ import android.os.Bundle;
                 //have the event already here
                 //user clicks on the box to edit event
             }
-/*
-    private void displayDailyEvents(){
-        Date calendarDate = cal.getTime();
-        List<Event> dailyEvent =
-        List<Event> dailyEvent = mQuery.getAllFutureEvents(calendarDate);
-        for(Event eObject : dailyEvent){
-            Date eventDate = eObject.getDate();
-            Date endDate = eObject.getEnd();
-            String eventMessage = eObject.getMessage();
-            int eventBlockHeight = getEventTimeFrame(eventDate, endDate);
-            Log.d(TAG, "Height " + eventBlockHeight);
-            displayEventSection(eventDate, eventBlockHeight, eventMessage);
-        }
-    }*/
 
             private int getEventTimeFrame(Date start, Date end){
                 long timeDifference = end.getTime() - start.getTime();
@@ -196,8 +165,3 @@ import android.os.Bundle;
                 mLayout.addView(mEventView, eventIndex - 1);
             }
         }
-
-
-
-    }
-}
