@@ -11,15 +11,15 @@ This is next Billion Dollar Project/Start- UP
 
 
 ## Table of Contents
-* [Overview] (#overview)
-* [Requirements] (#requirements)
-* [Design] (#design)
-* [Risk Management Plan] (#risk-management-plan)
-* [Implementation] (#implementation)
-* [Sprint Schedule] (#sprint-schedule)
-* [Software Development Plan] (#software-development-plan)
-* [Coding Style] (#coding-style)
-* [References/Glossery] (#references-glossery)
+[Overview] (https://github.com/jasur-2902/SoftwareEngineeringProject#overview)
+[Requirements] (https://github.com/jasur-2902/SoftwareEngineeringProject#requirements)
+[Design] (https://github.com/jasur-2902/SoftwareEngineeringProject#design)
+[Risk Management Plan] (https://github.com/jasur-2902/SoftwareEngineeringProject#risk-management-plan)
+[Implementation] (https://github.com/jasur-2902/SoftwareEngineeringProject#implementation)
+[Sprint Schedule] (https://github.com/jasur-2902/SoftwareEngineeringProject#sprint-schedule)
+[Software Development Plan] (https://github.com/jasur-2902/SoftwareEngineeringProject#software-development-plan)
+[Coding Style] (https://github.com/jasur-2902/SoftwareEngineeringProject#coding-style)
+[References/Glossery] (https://github.com/jasur-2902/SoftwareEngineeringProject#references-glossery)
 
 ## Overview
 
@@ -33,27 +33,28 @@ We want to create an application that users can schedule free time with another 
 
 To fully grasp on what we are dealing with, we had to constuct various models to make our application a reality. We started off with a Use-case model of an examplimentary senario of how the application will be used. Below, the model shows two actors and their functions that they get to perform. The general customer is like any ordinary customer and has the abilities to do what it says in the diagram below. The level 2 actor, know as the manager/faculty is what can be obtained if this application was enterprise driven, which at the moment wont be developed until the later in the future. 
 
-picture goes here
+<img src="https://github.com/jasur-2902/SoftwareEngineeringProject/blob/master/projectpics/Use%20Case.jpg" alt="alt text" width="800">
+
 
 Alongside with the use-case models, we have our sequence model to visually show how our application will run in terms of functionality. We are given several figures to work with as they hold the sequence to how our application is able to work. The login portal is where our user is able to login to our application as their info is then inputted and then sent to firebase authentication that is implemented within our code to determine if the user will be granted to have access into the account and to proceed. It also shows what happens when the user fails to login and what it outputs. 
 
-picture goes here
+<img src="https://github.com/jasur-2902/SoftwareEngineeringProject/blob/master/projectpics/loginsequence.jpg" alt="alt text" width="800">
 
 Our registration process is also a fairly similar process to the login process but with additional steps. Users this time have to enter in their email address, username, password and to check off the terms of service to be granted clearance for account creation. Data is then sent to firebase and a new user is born. It will also give our error messages if the user fails to register such as invalid credentials, username being taken already, and that all the fields must be filled. 
 
-picture goes here
+<img src="https://github.com/jasur-2902/SoftwareEngineeringProject/blob/master/projectpics/registrationsequence.jpg" alt="alt text" width="800">
 
 This next one is the add/edit/delete schedule process in where the user is able to create or edit or delete their schedule. This sequence diagram is the heart of our application and must be followed thoroughly. User clicks on a date, then gets sent to an user interface with fields that need to be filled in. There, the user will have to set their schedule along side a priority to their event; this priority helps the algorithm determine the best scheduling time. Once the user fills out everything and press submit, the info will be sent to firebase and a reference will be made under their branch in the database. As for editing their schedule, firebase will simply retrieve the info and brnig it back to user display in the interface that the user will edit it in. Finally, for deleting an event, there will be a button and the user will have to press it to delete the event; a two step deletion process will be implemented just in case.
 
-picture goes here
+<img src="https://github.com/jasur-2902/SoftwareEngineeringProject/blob/master/projectpics/editschedulesequence.jpg" alt="alt text" width="800">
 
 Our next one is the add friend function. User will be able to search different unique users through our database and will be able to send a friend request to that said user. Our application alongside with firebase will send the request prompt to the end user. The end user will have the option to either accept or reject their request. Any answer will alter the database. When accepted, the front user will be notified and they will be each others friends. Now as for to match the schedule. Either user will send a request for a meetup/free time together. One user will send the request and that data will be parsed through firebase and our application itself and the end user will determine to accept looking for the free time. Once accepted, our application's algorithm, along side with firebase will help determine the best time to meet up and send the data over to the users. Both users have to agree to a time that best fits their schedule, a list of time slots will be given to them.
 
-picture goes here
+<img src="https://github.com/jasur-2902/SoftwareEngineeringProject/blob/master/projectpics/addfriendsequence.jpg" alt="alt text" width="800">
 
 As our previous diagrams explained our sequence and user driven approaches to our application, we now focus our attention to the UML class diagrams that help create the code. In here, our class diagram shows various components of our application to what are are planning on following and to implement every frame of. We start off our authentication branch which shows all the classes needed for users to log into the application. This ranges from our login activity, register activity, the start activity, and the forgot password activity. We then focus on our main branch that is the main display for our application. This includes our main activity with a nested class within it called a view pager adapter, a user adapter with a nested class called viewholder, a user fragment for our UI display and functionality, a calendar fragment that is for display and minor functionality and a schedule activity that makes the schedule itself. There are also other activities that are there to make this appliation more welcoming, and we have the profile activity for just that. We also have several classes that make the activities really function thanks to their usefullness. Those classes are the user class, friendlist class, event list class, and the free time algorithm class. Check the figure below for a visual of everything.
 
-picture goes here
+<img src="https://github.com/jasur-2902/SoftwareEngineeringProject/blob/master/projectpics/RedesignedUMLClassModel.png" alt="alt text" width="auto">
 
 ## Risk Management Plan
 
@@ -72,12 +73,21 @@ Finally, we get to our project manager/scrum master, Jasur. Our project manager 
 
 ## Sprint Schedule
 
-picture goes here x4
+
+<img src="https://github.com/jasur-2902/SoftwareEngineeringProject/blob/master/projectpics/sprint2photo.png" alt="alt text" width="800">
+
+
+<img src="https://github.com/jasur-2902/SoftwareEngineeringProject/blob/master/projectpics/sprint3photo.png" alt="alt text" width="800">
+
+
+<img src="https://github.com/jasur-2902/SoftwareEngineeringProject/blob/master/projectpics/sprint4photo.png" alt="alt text" width="800">
+
+
 
 
 ## Software Developement Plan
 
-###Introduction
+### Introduction
 
 Purpose: This is the software development plan for the android application Schedule.Me. Within
 this section of the document, there will be given a layout of how this application will be
@@ -90,7 +100,7 @@ based on their schedule of the day. With that being said, this software developm
 document scope focuses on who is assigned with what task to do along with how our system will
 meet our requirements specified by our models.
 
-###Roles: 
+### Roles: 
 
 Project Manager: sets up the task on monday.com to ensure on what we have to do in terms of
 assignments; is the main brain of the project in terms of what it is and focuses on the business
@@ -100,7 +110,7 @@ code is good to integrate.
 Project team: sets up the code environment alongside brainstorming graphical models and plans
 to integrate the models into a real product by utilizing software architecture techniques.
 
-###Usability
+### Usability
 
 Social Use: Schedule.Me will be used as an application aid for those wishing to find free time
 with their friends. The application will be available through the google play store and only on
@@ -121,7 +131,7 @@ with it. This supplements the ease of using the app. Along with a friendly UI, t
 appealing looks to the application itself so the application is bright and colorful in terms of
 background and widgets that it utilizes.
 
-###Reliability
+### Reliability
 
 Schedule.Me must ensure a good method for delivering free time from one user to another. This
 process will be challenging to achieve since this is the selling point of our application. We want
@@ -135,7 +145,7 @@ down server and/or database, we would most likely run into vulnerabilities by ey
 16 hackers who want to access our data. Google Firebase ensures that our data is secure and
 encrypted to prevent any fraudulent actions that can take place.
 
-###Efficiency
+### Efficiency
 
 What we look for in Schedule.Me most importantly is efficiency. This includes runtime when the
 user uses the application. We want the user to easily use this application without any drawbacks
@@ -146,7 +156,7 @@ always being online and ease to update information within the application. For o
 be online, this is where yet again firebase comes in handy. As for updating information, we want
 to not make it a hassle if the user has to update their schedule for a day or for several days
 
-###Maintainability
+### Maintainability
 
 Schedule.Me should expect to see some updates once it is launched. Updates are usually enacted
 based on user feedback or from beta-testers of a prototype of an upcoming version of the app.
@@ -155,7 +165,7 @@ to it. Let's say if there exists a bug on a certain OS of android, then it must 
 possible. Prior to setting our new features or updates to the app, there must be test cases created
 and passed before an update is published to the app store.
 
-###Portability
+### Portability
 
 Schedule.Me needs to fulfill its way of storing its data and itself across a majority of platforms.
 What this means is that users can install the app on any device and don’t have to worry about
@@ -166,9 +176,10 @@ schedule, their friends list, priorities of events in their schedule, their prof
 credentials, and anything that was left off from the other device which is now migrated onto the
 second device.
 
-###Model Plan
+### Model Plan
 
-picture goes here
+
+<img src="https://github.com/jasur-2902/SoftwareEngineeringProject/blob/master/projectpics/diagramextra.png" alt="alt text" width="800">
 
 The figure above demonstrates the overall software development plan. The frontend, backend,
 and database boxes enclosed in the larger box shows how all three implementations will be done
