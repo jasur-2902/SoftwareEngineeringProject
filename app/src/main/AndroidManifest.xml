@@ -15,10 +15,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+<<<<<<< Updated upstream
         android:theme="@style/AppTheme.Base">
         <activity android:name=".FindFriendsActivity"
             android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".ForgotPasswordActivity" />
+=======
+        android:theme="@style/AppTheme">
+        <activity android:name=".calendar.activities.MainActivity"></activity>
+        <activity android:name=".MatchedSchedule" />
+        <activity android:name=".UsersActivity" />
+        <activity
+            android:name=".EventCreationActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".FindFriendsActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+>>>>>>> Stashed changes
         <activity
             android:name=".ProfileActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -37,7 +53,10 @@
         <activity
             android:name=".StartActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+<<<<<<< Updated upstream
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -48,6 +67,11 @@
 
         <!-- // CALENDAR VIEW //-->
 
+=======
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- // CALENDAR VIEW // -->
+>>>>>>> Stashed changes
         <activity
             android:name=".calendar.activities.CalendarActivity"
             android:launchMode="singleTask">
