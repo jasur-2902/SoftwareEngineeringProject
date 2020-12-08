@@ -1,4 +1,4 @@
-package com.simplemobiletools.calendar.pro.adapters
+package com.example.calendarapp.calendar.adapters
 
 import android.view.Menu
 import android.view.View
@@ -9,21 +9,17 @@ import com.example.calendarapp.calendar.dialogs.DeleteEventDialog
 import com.example.calendarapp.calendar.extensions.config
 import com.example.calendarapp.calendar.extensions.eventsHelper
 import com.example.calendarapp.calendar.extensions.handleEventDeleting
-import com.example.calendarapp.calendar.extensions.shareEvents
 import com.example.calendarapp.calendar.helpers.Formatter
 import com.example.calendarapp.calendar.helpers.ITEM_EVENT
 import com.example.calendarapp.calendar.helpers.ITEM_EVENT_SIMPLE
-
 import com.example.calendarapp.calendar.helpers.LOW_ALPHA
 import com.example.calendarapp.calendar.models.Event
-import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.adjustAlpha
 import com.simplemobiletools.commons.extensions.applyColorFilter
 import com.simplemobiletools.commons.extensions.beInvisible
 import com.simplemobiletools.commons.extensions.beInvisibleIf
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.views.MyRecyclerView
-
 import kotlinx.android.synthetic.main.event_item_day_view.view.*
 
 class DayEventsAdapter(activity: SimpleActivity, val events: ArrayList<Event>, recyclerView: MyRecyclerView, itemClick: (Any) -> Unit)
@@ -44,7 +40,7 @@ class DayEventsAdapter(activity: SimpleActivity, val events: ArrayList<Event>, r
 
     override fun actionItemPressed(id: Int) {
         when (id) {
-            R.id.cab_share -> shareEvents()
+            // R.id.cab_share -> shareEvents()
             R.id.cab_delete -> askConfirmDelete()
         }
     }
@@ -148,7 +144,7 @@ class DayEventsAdapter(activity: SimpleActivity, val events: ArrayList<Event>, r
         }
     }
 
-    private fun shareEvents() = activity.shareEvents(selectedKeys.distinct().map { it.toLong() })
+    //private fun shareEvents() = activity.shareEvents(selectedKeys.distinct().map { it.toLong() })
 
     private fun askConfirmDelete() {
         val eventIds = selectedKeys.map { it.toLong() }.toMutableList()

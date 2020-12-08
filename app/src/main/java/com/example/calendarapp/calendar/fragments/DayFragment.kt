@@ -12,6 +12,7 @@ import com.example.calendarapp.R
 import com.example.calendarapp.calendar.activities.EventActivity
 import com.example.calendarapp.calendar.activities.CalendarActivity
 import com.example.calendarapp.calendar.activities.SimpleActivity
+import com.example.calendarapp.calendar.adapters.DayEventsAdapter
 import com.example.calendarapp.calendar.extensions.config
 import com.example.calendarapp.calendar.extensions.eventsHelper
 import com.example.calendarapp.calendar.extensions.getViewBitmap
@@ -22,7 +23,6 @@ import com.example.calendarapp.calendar.helpers.EVENT_OCCURRENCE_TS
 import com.example.calendarapp.calendar.helpers.Formatter
 import com.example.calendarapp.calendar.interfaces.NavigationListener
 import com.example.calendarapp.calendar.models.Event
-import com.simplemobiletools.calendar.pro.adapters.DayEventsAdapter
 import com.simplemobiletools.commons.extensions.applyColorFilter
 import com.simplemobiletools.commons.extensions.beGone
 import com.simplemobiletools.commons.extensions.beVisible

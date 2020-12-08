@@ -15,6 +15,7 @@ import com.example.calendarapp.calendar.helpers.Formatter
 import com.example.calendarapp.calendar.models.ListEvent
 import com.example.calendarapp.calendar.models.ListItem
 import com.example.calendarapp.calendar.models.ListSection
+import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.adjustAlpha
 import com.simplemobiletools.commons.extensions.applyColorFilter
@@ -29,7 +30,7 @@ import kotlinx.android.synthetic.main.event_list_section.view.*
 import java.util.*
 
 class EventListAdapter(activity: SimpleActivity, var listItems: ArrayList<ListItem>, val allowLongClick: Boolean, val listener: RefreshRecyclerViewListener?,
-                       recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
+                       recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(SimpleActivity() as BaseSimpleActivity, recyclerView, null, itemClick) {
 
     private val topDivider = resources.getDrawable(R.drawable.divider_width)
     private val allDayString = resources.getString(R.string.all_day)

@@ -1,15 +1,11 @@
 package com.example.calendarapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.example.calendarapp.Model.Schedule;
-import com.example.calendarapp.calendar.extensions.TextViewKt;
-import com.google.firebase.FirebaseError;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,9 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class MatchedSchedule extends AppCompatActivity {
@@ -35,6 +29,15 @@ public class MatchedSchedule extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matched_schedule);
 
+
+
+        /**
+         *
+         * Algorithm for schedule mathcing starts here
+         *
+         * */
+
+
         daysOfWeek.put(1, "Monday");
         daysOfWeek.put(2, "Tuesday");
         daysOfWeek.put(3, "Wednesday");
@@ -42,7 +45,6 @@ public class MatchedSchedule extends AppCompatActivity {
         daysOfWeek.put(5, "Friday");
         daysOfWeek.put(6, "Saturday");
         daysOfWeek.put(7, "Sunday");
-
 
         for (int i = 1; i<8; i++){
             HashMap<Integer, Boolean> available_hours = new HashMap<>();
@@ -54,11 +56,7 @@ public class MatchedSchedule extends AppCompatActivity {
 
         }
 
-
-
         final TextView tvTest = findViewById(R.id.tvTest);
-
-
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(getIntent().getStringExtra("senderUserID")).child("schedule");
         mDatabaseReciever = FirebaseDatabase.getInstance().getReference().child("Users").child(getIntent().getStringExtra("receiverUserID")).child("schedule");
@@ -92,23 +90,59 @@ public class MatchedSchedule extends AppCompatActivity {
                         }
                     }
 
+                    /**
+                     *
+                     * Algorithm for schedule matching ends here
+                     *
+                     * */
+
+
+
+                    // *** IMPORTANT *** //
+                    //Result saved in nested hashmap available
+
+
+                    // Structure of the Result Hashmap
+                    // HashMap<Integer, HashMap<Integer, Boolean>> available = new HashMap<>();
+                    /**
+                     * 1:
+                     *   0: true
+                     *   1: true
+                     *   2: true
+                     *   3: false
+                     *   4: true
+                     *   5: true
+                     *   ...
+                     *   23: true
+                     * 2:
+                     *  0
+                     *  1
+                     *  2
+                     *  3
+                     *  4
+                     *  ...
+                     *
+                     *  1 stands for monday
+                     *  7 stands for sunday
+                     *
+                     *
+                     *
+                    */
+
                     String result = "";
 
                     for (int acc : available.keySet()) {
                         result = result + daysOfWeek.get(acc) + ":\n";
                         HashMap<Integer, Boolean> abb = available.get(acc);
                         for(int i = 0; i<25; i++){
-//                            if(abb.containsKey(i) && abb.get(i) == true)
-                                result = result  + i + " - " + abb.get(i) + "\n";
+                            result = result  + i + " - " + abb.get(i) + "\n";
                         }
                         result = result + "\n";
                     }
-                     // }
 
                     tvTest.setText(result);
 
-
-                // ...
+                    
             }
 
             @Override

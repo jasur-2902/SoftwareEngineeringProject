@@ -7,7 +7,6 @@ import android.provider.CalendarContract
 import com.example.calendarapp.R
 import com.example.calendarapp.calendar.extensions.config
 import com.example.calendarapp.calendar.extensions.refreshCalDAVCalendars
-import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 
 open class SimpleActivity : BaseSimpleActivity() {

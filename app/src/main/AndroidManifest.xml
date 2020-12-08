@@ -46,9 +46,6 @@
         <activity
             android:name=".StartActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,23 +57,12 @@
 
         <!-- // CALENDAR VIEW //-->
 
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- // CALENDAR VIEW // -->
-
         <activity
             android:name=".calendar.activities.CalendarActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.app.default_searchable"
                 android:resource="@xml/searchable" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <intent-filter>
 
