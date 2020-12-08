@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UsersActivity"></activity>
+        <activity android:name=".calendar.activities.MainActivity"></activity>
+        <activity android:name=".MatchedSchedule" />
+        <activity android:name=".UsersActivity" />
         <activity
             android:name=".EventCreationActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -44,10 +46,25 @@
         <activity
             android:name=".StartActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
-        <!-- // CALENDAR VIEW // -->
+
+        <!-- // CALENDAR VIEW //-->
+
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- // CALENDAR VIEW // -->
+
         <activity
             android:name=".calendar.activities.CalendarActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

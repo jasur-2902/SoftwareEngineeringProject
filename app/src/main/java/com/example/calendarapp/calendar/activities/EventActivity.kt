@@ -7,6 +7,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
@@ -19,6 +20,10 @@ import com.example.calendarapp.calendar.helpers.Formatter
 import com.example.calendarapp.calendar.models.CalDAVCalendar
 import com.example.calendarapp.calendar.models.Event
 import com.example.calendarapp.calendar.models.EventType
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.simplemobiletools.commons.dialogs.ConfirmationAdvancedDialog
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
@@ -32,6 +37,7 @@ import org.joda.time.DateTimeZone
 import java.util.*
 import java.util.regex.Pattern
 import kotlin.collections.ArrayList
+
 
 class EventActivity : SimpleActivity() {
     private val LAT_LON_PATTERN = "^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?)([,;])\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)\$"
@@ -78,6 +84,7 @@ class EventActivity : SimpleActivity() {
     private lateinit var mEventEndDateTime: DateTime
     private lateinit var mEvent: Event
 
+    private lateinit var database: DatabaseReference
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event)
@@ -836,8 +843,18 @@ class EventActivity : SimpleActivity() {
             saveEvent()
         }
     }
+    private var mAuth: FirebaseAuth? = null
+    //private var databaseReference: DatabaseReference? = null
+    private lateinit var databaseReference: DatabaseReference
 
     private fun saveEvent() {
+
+        database = Firebase.database.reference
+        database.child("test").child("userId").setValue("user");
+        mAuth = FirebaseAuth.getInstance()
+
+        val senderUserID = mAuth!!.currentUser!!.uid
+
         val newTitle = event_title.value
         if (newTitle.isEmpty()) {
             toast(R.string.title_empty)
@@ -846,6 +863,7 @@ class EventActivity : SimpleActivity() {
             }
             return
         }
+
 
         var newStartTS: Long
         var newEndTS: Long
@@ -913,7 +931,37 @@ class EventActivity : SimpleActivity() {
             eventsHelper.deleteEvent(mEvent.id!!, true)
             mEvent.id = null
         }
+
+
+        //We input our values into a hashmap so we can have our json file be read to our database
+
+        //We input our values into a hashmap so we can have our json file be read to our database
+        //database =  database.child("Users").child(senderUserID).child("schedule").child(Formatter.getDateTimeFromTS(newStartTS).dayOfWeek().asString)
+
+        //databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(senderUserID);
+        val formatedDate = Formatter.getDateTimeFromTS(newStartTS);
+
+        databaseReference = Firebase.database.reference
+      //  databaseReference = databaseReference
+
+        var timestampA = formatedDate.hourOfDay().asString
+        timestampA = timestampA.replace(" ", "");
+        Log.d("AAAAHEEEEAAAA", timestampA);
+        databaseReference.child("Users").child(senderUserID).child("schedule").child(formatedDate.dayOfWeek().asString).child(timestampA).child("title").setValue(newTitle);
+        databaseReference.child("Users").child(senderUserID).child("schedule").child(formatedDate.dayOfWeek().asString).child(timestampA).child("day").setValue(formatedDate.dayOfMonth().asString)
+        databaseReference.child("Users").child(senderUserID).child("schedule").child(formatedDate.dayOfWeek().asString).child(timestampA).child("month").setValue(formatedDate.monthOfYear().asString)
+        databaseReference.child("Users").child(senderUserID).child("schedule").child(formatedDate.dayOfWeek().asString).child(timestampA).child("year").setValue(formatedDate.yearOfCentury().asString)
+        databaseReference.child("Users").child(senderUserID).child("schedule").child(formatedDate.dayOfWeek().asString).child(timestampA).child("hour").setValue(formatedDate.hourOfDay().asString)
+        databaseReference.child("Users").child(senderUserID).child("schedule").child(formatedDate.dayOfWeek().asString).child(timestampA).child("minutes").setValue(formatedDate.minuteOfHour().asString)
+        databaseReference.child("Users").child(senderUserID).child("schedule").child(formatedDate.dayOfWeek().asString).child(timestampA).child("endHour").setValue(Formatter.getDateTimeFromTS(newEndTS).hourOfDay().asString)
+
+
+
+
+        //database.child(senderUserID).child("test").child("userId").setValue("user");
+
         storeEvent(wasRepeatable)
+
     }
 
     private fun storeEvent(wasRepeatable: Boolean) {

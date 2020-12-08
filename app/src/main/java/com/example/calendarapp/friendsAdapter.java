@@ -1,22 +1,30 @@
 package com.example.calendarapp;
+import android.app.Activity;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.calendarapp.Model.User;
+import com.example.calendarapp.calendar.activities.EventActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 // FirebaseRecyclerAdapter is a class provided by
@@ -25,7 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class friendsAdapter extends FirebaseRecyclerAdapter<
         User, friendsAdapter.personsViewholder> {
 
-    private DatabaseReference userRef;
+    private DatabaseReference userRef,receiverReference;
     private FirebaseAuth mAuth;
     private String senderUserID, receiverUserID;
 
@@ -55,7 +63,7 @@ public class friendsAdapter extends FirebaseRecyclerAdapter<
         // Set visibility to add friend
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
         mAuth = FirebaseAuth.getInstance();
-
+        receiverReference = FirebaseDatabase.getInstance().getReference().child("Users");
         senderUserID = mAuth.getCurrentUser().getUid();
         holder.unfriend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +79,48 @@ public class friendsAdapter extends FirebaseRecyclerAdapter<
                         });
             }
         });
+
+
+
+
+
+
+                userRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull final DataSnapshot snapshot) {
+
+                        holder.make_schedule.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(final View v) {
+                                receiverUserID = model.getId();
+                                final Intent match = new Intent(v.getContext(), MatchedSchedule.class);
+
+
+                                if(snapshot.child(receiverUserID).hasChild("schedule") && snapshot.child(senderUserID).hasChild("schedule")) {
+
+                            match.putExtra("receiverUserID", receiverUserID);
+                            match.putExtra("senderUserID", senderUserID);
+                            v.getContext().startActivity(match);
+
+                            Log.d("receiverUserID", receiverUserID);
+                            Log.d("senderUserID", senderUserID);
+                        }
+                        else {
+                            Toast.makeText(v.getContext(), "This user doesn't have schedule", Toast.LENGTH_LONG).show();
+                        }
+                            }
+                        });
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+
     }
 
 

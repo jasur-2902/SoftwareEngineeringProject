@@ -26,7 +26,6 @@ import com.example.calendarapp.calendar.helpers.*
 import com.example.calendarapp.calendar.helpers.Formatter
 import com.example.calendarapp.calendar.models.ListEvent
 import com.google.firebase.auth.FirebaseAuth
-import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -93,10 +92,10 @@ class CalendarActivity : SimpleActivity(), RefreshRecyclerViewListener {
         checkAppOnSDCard()
 
 
-        if (!config.wasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.calendar")) {
-            ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0) {}
-            config.wasUpgradedFromFreeShown = true
-        }
+//        if (!config.wasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.calendar")) {
+//            ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0) {}
+//            config.wasUpgradedFromFreeShown = true
+//        }
     }
 
     override fun onResume() {
