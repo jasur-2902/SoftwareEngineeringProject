@@ -1,22 +1,39 @@
 package com.example.calendarapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+//import com.example.calendarapp.Adapter.DayListAdapter;
+//import com.example.calendarapp.Adapter.MatchActivityAdapter;
+import com.example.calendarapp.Adapter.MatchActivityAdapter;
+import com.example.calendarapp.Model.DayAnswer;
+import com.example.calendarapp.Model.Schedule;
+import com.example.calendarapp.Model.ScheduleResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class MatchedSchedule extends AppCompatActivity {
+
+    //MatchActivityAdapter matchActivityAdapter;
 
     private DatabaseReference mDatabase, mDatabaseReciever;
 
@@ -24,12 +41,12 @@ public class MatchedSchedule extends AppCompatActivity {
 
     HashMap<Integer, HashMap<Integer, Boolean>> available = new HashMap<>();
 
+    RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matched_schedule);
-
-
 
         /**
          *
@@ -47,7 +64,7 @@ public class MatchedSchedule extends AppCompatActivity {
         daysOfWeek.put(7, "Sunday");
 
         for (int i = 1; i<8; i++){
-            HashMap<Integer, Boolean> available_hours = new HashMap<>();
+            HashMap<Integer, Boolean> available_hours = new HashMap<>();  //this is hash for available hour listing
 
             for(int j=0; j<24; j++) {
                 available_hours.put(j, true);
@@ -56,7 +73,8 @@ public class MatchedSchedule extends AppCompatActivity {
 
         }
 
-        final TextView tvTest = findViewById(R.id.tvTest);
+        //final TextView tvTest = findViewById(R.id.tvTest);
+        //final TextView dayTest = findViewById(R.id.textview_section_header_yes);
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(getIntent().getStringExtra("senderUserID")).child("schedule");
         mDatabaseReciever = FirebaseDatabase.getInstance().getReference().child("Users").child(getIntent().getStringExtra("receiverUserID")).child("schedule");
@@ -129,20 +147,40 @@ public class MatchedSchedule extends AppCompatActivity {
                      *
                     */
 
-                    String result = "";
-
+                    List<ScheduleResult> parentListing = new ArrayList<>();
+                    //List<DayAnswer> childListening = new ArrayList<>();
                     for (int acc : available.keySet()) {
-                        result = result + daysOfWeek.get(acc) + ":\n";
                         HashMap<Integer, Boolean> abb = available.get(acc);
-                        for(int i = 0; i<25; i++){
-                            result = result  + i + " - " + abb.get(i) + "\n";
+                        List<DayAnswer> childListening = new ArrayList<>();
+
+                        //for loop of childlistening here
+                        for(int i = 0; i<24; i++){
+                            assert abb != null;
+                            if (abb.get(i) == true){
+                                int x = numLogic(i);
+                                if (x <= 0 && i <= 11) {
+                                    childListening.add(new DayAnswer(i, abb.get(i), "AM")); //this is for AM timing
+                                } else if (x > 0 && i <= 11){
+                                    childListening.add(new DayAnswer(x, abb.get(i), "AM")); //this is for 12 AM, the first hour
+                                } else if (x == 0 && i == 12){
+                                    childListening.add(new DayAnswer(i, abb.get(i), "PM"));
+                                } else {
+                                    childListening.add(new DayAnswer(x, abb.get(i), "PM")); //this is for PM timing
+                                }
+                            }
+                            //childListening.add(new DayAnswer(i, abb.get(i)));
                         }
-                        result = result + "\n";
+                        parentListing.add(new ScheduleResult(daysOfWeek.get(acc), childListening));
                     }
 
-                    tvTest.setText(result);
 
-                    
+
+                recyclerView = findViewById(R.id.recyclerinschedule);
+                MatchActivityAdapter matchActivityAdapter = new MatchActivityAdapter(parentListing);
+                recyclerView.setAdapter(matchActivityAdapter);
+                recyclerView.setHasFixedSize(false);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(MatchedSchedule.this);
+                recyclerView.setLayoutManager(layoutManager);
             }
 
             @Override
@@ -155,4 +193,16 @@ public class MatchedSchedule extends AppCompatActivity {
         mDatabaseReciever.addValueEventListener(postListener);
 
     }
+
+    //function that helps display time in PM
+    private int numLogic(int i){
+        if (i == 0){
+            return 12;
+        } else {
+            i -= 12;
+            return i;
+        }
+    }
+
+
 }
