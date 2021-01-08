@@ -1,5 +1,5 @@
-# SoftwareEngineeringProject
-Final Project for CSC 440 
+SCHEDULE-MATCHING ANDROID APPLICATION
+using Java, Firebase, and Android Studio
 
 Team Members:  
               Jasur Shukurov - Master/Project Manager  
